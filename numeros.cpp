@@ -3,9 +3,11 @@
 using namespace std;
 
 // Operaciones auxiliares
-int sumaDivisores(int n) {
+int sumaDivisores(int n) 
+{
     int suma = 0;
-    for (int i = 1; i < n; i++) {
+    for (int i = 1; i < n; i++) 
+    {
         if (n % i == 0)
             suma += i;
     }
@@ -71,7 +73,8 @@ bool sonAmigos(int n1, int n2)
 }
 
 // Número ambicioso: todo número que cumple que la secuencia que se forma al sumar sus divisores propios, después los divisores propios del resultado de esa suma, después los del número obtenido…acaba en un número perfecto.
-bool esAmbicioso(int n) {
+bool esAmbicioso(int n) 
+{
     int suma = sumaDivisores(n);
     
     return esPerfecto(suma);
