@@ -2,7 +2,7 @@
 
 using namespace std;
 
-// Operaciones auxiliares (exceptuando el mismo numero)
+// Suma de divisores (exceptuando el mismo numero)
 int sumaDivisores(int n) 
 {
     int suma = 0;
@@ -89,6 +89,53 @@ bool esAmbicioso(int n)
     return esPerfecto(suma);
 }
 
+// M.C.D. de dos numeros
+int mcd(int n1, int n2)
+{
+    int aux;
+    while (n2 != 0)
+    {
+        aux = n2;
+        n2 = n1 % n2;
+        n1 = aux;
+    }
+    
+    return n1;
+}
+
+// m.c.m. de dos numeros
+int mcm(int n1, int n2)
+{
+    return (n1 * n2) / mcd(n1, n2);
+}
+
+// Factorial de un numeros
+long long int factorial(int n) 
+{
+    if (n == 0)
+        return 1;
+        
+    long long int result = 1;
+    for (int i = 2; i <= n; i++)
+    {
+        result *= i;
+    }
+    
+    return result;
+}
+
+// Potencia de un numeros
+long double potencia(double n, double p)
+{
+    long double result = 1;
+    for (int i = 0; i < p; i++)
+    {
+        result *= n;
+    }
+    
+    return result;
+}
+
 int main()
 {
     cout << "Primo: " << esPrimo(7) << endl;
@@ -99,6 +146,10 @@ int main()
     cout << "Amigos: " << sonAmigos(220, 284) << endl;
     cout << "Casi Amigos: " << sonCasiAmigos(48, 75) << endl;
     cout << "Ambicioso: " << esAmbicioso(25) << endl;
+    cout << "MCD: " << mcd(180, 324) << endl;
+    cout << "mcm: " << mcm(180, 324) << endl;
+    cout << "Factorial: " << factorial(25) << endl;
+    cout << "Potencia: " << potencia(25, 2) << endl;
     
     return 0;
 }
