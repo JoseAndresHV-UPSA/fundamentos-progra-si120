@@ -2,11 +2,11 @@
 
 using namespace std;
 
-// Operaciones auxiliares
+// Operaciones auxiliares (exceptuando el mismo numero)
 int sumaDivisores(int n) 
 {
     int suma = 0;
-    for (int i = 1; i < n; i++) 
+    for (int i = 1; i <= n / 2; i++) 
     {
         if (n % i == 0)
             suma += i;
@@ -15,7 +15,7 @@ int sumaDivisores(int n)
     return suma;
 }
 
-// Número primo: todo número natural mayor que 1 que cumple que sus únicos divisores son el 1 y el propio número. Ejemplos: 2, 3, 5,… Éste es el más grande que se conoce.
+// Número primo: todo número natural mayor que 1 que cumple que sus únicos divisores son el 1 y el propio número.
 bool esPrimo(int n) 
 {
     if (n == 0 || n == 1 || n == 4) 
@@ -72,6 +72,15 @@ bool sonAmigos(int n1, int n2)
     return n1 == suma2 && n2 == suma1;
 }
 
+// Números casi amigos: parejas de números que cumplen que la suma de los divisores propios de cada uno de ellos (excepto el uno) da como resultado el otro número.
+bool sonCasiAmigos(int n1, int n2)
+{
+    int suma1 = sumaDivisores(n1) - 1;
+    int suma2 = sumaDivisores(n2) - 1;
+    
+    return n1 == suma2 && n2 == suma1;
+}
+
 // Número ambicioso: todo número que cumple que la secuencia que se forma al sumar sus divisores propios, después los divisores propios del resultado de esa suma, después los del número obtenido…acaba en un número perfecto.
 bool esAmbicioso(int n) 
 {
@@ -88,6 +97,7 @@ int main()
     cout << "Abundante: " << esAbundante(12) << endl;
     cout << "Deficiente: " << esDeficiente(16) << endl;
     cout << "Amigos: " << sonAmigos(220, 284) << endl;
+    cout << "Casi Amigos: " << sonCasiAmigos(48, 75) << endl;
     cout << "Ambicioso: " << esAmbicioso(25) << endl;
     
     return 0;
