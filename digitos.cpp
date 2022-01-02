@@ -87,7 +87,8 @@ int eliminarDigito(int n, int d)
 }
 
 // Ordenar digitos ascendentemente
-int ordenarDigitosAsc(int n) {
+int ordenarDigitosAsc(int n) 
+{
     int result = 0;
     
     for (int dig = 0; dig <= 9; dig++)
@@ -105,7 +106,8 @@ int ordenarDigitosAsc(int n) {
 }
 
 // Ordenar digitos descendentemente
-int ordenarDigitosDesc(int n) {
+int ordenarDigitosDesc(int n) 
+{
     int result = 0;
     
     for (int dig = 9; dig >= 0; dig--)
@@ -122,6 +124,22 @@ int ordenarDigitosDesc(int n) {
     return result;
 }
 
+// Invertir digitos de un numero
+int invertir(int n) 
+{
+    int result = 0;
+    while (n != 0) 
+    {
+        int dig = n % 10;
+        result = result * 10 + dig; 
+                
+        n /= 10;
+    }
+    
+    return result;
+}
+
+
 int main()
 {
     cout << "Mayor digito: " << mayorDigito(123) << endl;
@@ -131,6 +149,7 @@ int main()
     cout << "Eliminar digitos: " << eliminarDigito(123, 2) << endl;
     cout << "Ordenar digitos ascendentemente: " << ordenarDigitosAsc(1332) << endl;
     cout << "Ordenar digitos descendentemente: " << ordenarDigitosDesc(1332) << endl;
+    cout << "Invertir: " << invertir(1332) << endl;
   
     return 0;
 }
