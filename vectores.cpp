@@ -39,11 +39,11 @@ void vectorAleatorio(int v[], int n)
 }
 
 // Ordenar vector 
-void intercambiar(int v[], int i, int j)
+void intercambiar(int& a, int& b)
 {
-    int aux = v[j];
-    v[j] = v[i];
-    v[i] = aux;
+    int aux = b;
+    b = a;
+    a = aux;
 }
 
 void ordenar(int v[], int n)
@@ -53,7 +53,7 @@ void ordenar(int v[], int n)
         for (int j = 0; j < n - 1; j++)
         {
             if (v[j] > v[j + 1])
-                intercambiar(v, j, j + 1);
+                intercambiar(v[j], v[j + 1]);
         }
     }
 }
@@ -90,7 +90,7 @@ void invertir(int v[], int n)
     int j = n - 1;
     for (int i = 0; i < n / 2; i++)
     {
-        intercambiar(v, i, j);
+        intercambiar(v[i], v[j]);
         j--;
     }
 }
@@ -113,7 +113,7 @@ bool esCapicua(int v[], int n)
 void eliminarPos(int v[], int &n, int p)
 {
     for (int i = p; i < n - 1; i++)
-        intercambiar(v, i, i + 1);
+        intercambiar(v[i], v[i + 1]);
     
     n--;
 }
@@ -181,21 +181,21 @@ void interseccionVectores(int v1[], int n1, int v2[], int n2,
 
 int main()
 {
-    //int v[50], n = 5, p = 2, num = 3;
-    //cargarVector(v, n);
+    int v[50], n = 5, p = 2, num = 3;
+    cargarVector(v, n);
     //mostrarVector(v, n);
     
     //vectorAleatorio(v, n);
     //mostrarVector(v, n);
     
-    //ordenar(v, n);
-    //mostrarVector(v, n);
+    ordenar(v, n);
+    mostrarVector(v, n);
     
     //cout << mayorVector(v, n) << endl;
     //cout << menorVector(v, n) << endl;
     
-    //invertir(v, n);
-    //mostrarVector(v, n);
+    invertir(v, n);
+    mostrarVector(v, n);
     
     //cout << esCapicua(v, n);
     
