@@ -5,7 +5,7 @@
 
 using namespace std;
 
-// Operaciones vector
+// Leer Vector
 void cargarVector(int v[], int n)
 {
     for (int i = 0; i < n; i++)
@@ -15,6 +15,7 @@ void cargarVector(int v[], int n)
     }
 }
 
+// Imprimir Vector
 void mostrarVector(int v[], int n)
 {
     for (int i = 0; i < n; i++)
@@ -38,7 +39,7 @@ void vectorAleatorio(int v[], int n)
         v[i] = aleatorio(max, min);
 }
 
-// Ordenar vector 
+// Intercambiar dos valores
 void intercambiar(int& a, int& b)
 {
     int aux = b;
@@ -46,6 +47,7 @@ void intercambiar(int& a, int& b)
     a = aux;
 }
 
+// Ordenar vector 
 void ordenar(int v[], int n)
 {
     for (int i = 0; i < n; i++)
