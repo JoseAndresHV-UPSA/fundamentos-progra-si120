@@ -139,6 +139,18 @@ int invertir(int n)
     return result;
 }
 
+// Crapulo de un numero: suma de los digitos mientras esta sea menor a 10
+int crapulo(int n)
+{
+    int suma = sumaDigitos(n);
+    while (suma >= 10)
+    {
+        n = suma;
+        suma = sumaDigitos(n);
+    }
+    
+    return suma;
+}
 
 int main()
 {
@@ -150,6 +162,7 @@ int main()
     cout << "Ordenar digitos ascendentemente: " << ordenarDigitosAsc(1332) << endl;
     cout << "Ordenar digitos descendentemente: " << ordenarDigitosDesc(1332) << endl;
     cout << "Invertir: " << invertir(1332) << endl;
+    cout << "Crapulo: " << crapulo(5678) << endl;
   
     return 0;
 }
